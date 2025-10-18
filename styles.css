@@ -1,0 +1,146 @@
+
+/* Global */
+:root{
+  --primary:#0b67a3;
+  --accent:#f5a623;
+  --bg-overlay: rgba(0,0,0,0.45);
+  --text:#ffffff;
+  --muted: rgba(255,255,255,0.9);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+body{
+  background: url('assets/background.jpg') center center fixed;
+  background-size: cover;
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* container */
+.container{max-width:1100px;margin:0 auto;padding:20px;}
+
+/* Header / nav */
+.site-header{position:sticky;top:0;z-index:20;background:transparent;padding:18px 0;}
+.header-inner{display:flex;justify-content:space-between;align-items:center;}
+.logo-wrap{display:flex;align-items:center;gap:12px;}
+.site-logo{width:180px;height:auto;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.4);}
+.brand-text{display:flex;flex-direction:column;font-weight:700;color:var(--text);line-height:1;}
+.brand-name{font-size:18px;font-weight:800;}
+.brand-sub{font-size:12px;opacity:0.9}
+
+/* Nav links right */
+.site-nav{display:flex;gap:12px;align-items:center; flex-wrap: wrap;} /* Allow nav links to wrap */
+.nav-link{color:var(--text);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:700;background:rgba(0,0,0,0.35);}
+.nav-link:hover{background:rgba(0,0,0,0.6);transform:translateY(-1px);}
+
+/* Hero */
+.hero{min-height:80vh;display:flex;align-items:center;position:relative;}
+.hero-overlay{width:100%;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.45));padding:80px 0;}
+.hero-content{padding:40px;border-radius:12px;background:rgba(0,0,0,0.25);}
+.hero-content h1{font-size:48px;margin:0 0 10px;font-weight:800;}
+.lead{font-size:18px;max-width:900px;line-height:1.6;color:var(--muted);}
+.slogan{margin-top:18px;font-weight:800;letter-spacing:0.6px;color:var(--accent);font-size:20px;}
+
+/* Sections */
+.section{padding:60px 20px;margin:20px auto;background:rgba(0,0,0,0.45);border-radius:10px;max-width:1100px;}
+.section h2{font-size:28px;margin-top:0;font-weight:800;}
+.section h3{font-size:20px;margin-bottom:8px;font-weight:700;}
+.section p{color:var(--muted);line-height:1.6;}
+.section ul{color:var(--muted);}
+
+/* Buttons */
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:700;}
+.primary{background:var(--primary);color:#fff;border:none;}
+
+/* Contact form */
+#contact-form{display:grid;gap:10px;max-width:600px;}
+#contact-form input,#contact-form textarea{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.03);color:var(--text);}
+#contact-form label{font-weight:700;color:var(--text);}
+
+/* Footer */
+.site-footer{padding:24px 0;background:transparent;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+.social{margin-left:auto;}
+.social-icon{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:4px;background:transparent;text-decoration:none;margin-left:4px;transition: transform 0.2s;}
+.social-icon img{width: 100%; height: 100%; object-fit: contain;}
+.social-icon:hover{transform:translateY(-1px);}
+
+/* Titles bold everywhere */
+h1,h2,h3,h4,h5{font-weight:800;}
+
+
+/* --- Mobile Optimization (Applies to screens 850px and smaller) --- */
+@media (max-width: 850px) {
+  .site-header {
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.7); /* Ensure header is readable on mobile */
+  }
+
+  /* 1. Remove "BuntuBuhle Talent & Tech" text to prevent crowding */
+  .brand-text {
+    display: none;
+  }
+
+  /* 2. Smaller logo */
+  .site-logo {
+    width: 120px;
+  }
+
+  /* 3. Tighter navigation links (Always Visible) */
+  .site-nav {
+    gap: 6px;
+    justify-content: center;
+    margin-top: 5px; /* Add a small margin below the logo/header */
+  }
+  .nav-link {
+    padding: 4px 8px; /* Smaller padding */
+    font-size: 12px; /* Smaller font size */
+  }
+
+  /* 4. Decrease general content font size */
+  .hero-content h1 {
+    font-size: 28px;
+  }
+  .lead, .section p, .section ul {
+    font-size: 14px;
+  }
+  .section h2 {
+    font-size: 24px;
+  }
+  .section h3 {
+    font-size: 18px;
+  }
+
+  /* 5. Ensure proper padding/spacing on content boxes */
+  .container {
+    padding: 10px;
+  }
+  .section {
+    padding: 20px 15px; /* Good padding for mobile content boxes */
+  }
+
+  /* 6. Footer adjustments */
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+/* Extra small screen adjustments (e.g., small phones) */
+@media (max-width: 480px) {
+  .site-nav {
+    flex-direction: column; /* Force links to stack vertically if they still overlap */
+    gap: 4px;
+  }
+  .nav-link {
+    width: 90%;
+    margin: 2px auto;
+    text-align: center;
+  }
+  .hero-content h1 {
+    font-size: 24px;
+  }
+}
+
